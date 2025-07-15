@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Landing Page</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation Menu -->
+  <header id="navbar">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="home-section" data-bg="peach">
+    <div class="home-content">
+      <i class="fas fa-home home-icon"></i>
+      <h1>Welcome to the Home Page</h1>
+      <p>This is the homepage of our website. Here you'll find an introduction to the site, 
+        a quick overview of features, and links to all other sections. Stay updated with our latest news.</p>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features-section" data-bg="blue">
+    <div class="features-content">
+      <i class="fas fa-cogs features-icon"></i>
+      <h2>Our Top Features</h2>
+      <p>Our website includes a fully responsive layout, an interactive user interface, 
+        fast performance, and easy customization. These features are designed to provide 
+        the best user experience possible.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section" data-bg="purple">
+    <div class="about-content">
+      <i class="fas fa-users about-icon"></i>
+      <h2>About Us</h2>
+      <p>We are a passionate team of developers, designers, and innovators dedicated to building
+        high-quality digital experiences. Our goal is to deliver intuitive and efficient solutions
+        that empower users and make technology accessible to everyone.</p>
+      <p>With a focus on creativity and collaboration, we strive to exceed expectations and drive
+        progress through smart, user-focused design.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section" data-bg="green">
+    <div class="contact-content">
+      <i class="fas fa-envelope contact-icon"></i>
+      <h2>Contact Us</h2>
+      <form class="contact-form" id="contactForm">
+        <input type="text" placeholder="Enter your name" required />
+        <input type="email" placeholder="Enter your email ID" required />
+        <input type="number" placeholder="Enter your age" min="0" required />
+        <textarea placeholder="Message us..." rows="5" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+
+      <!-- ✅ Thank You Popup -->
+      <div id="thankYouPopup" class="thank-you-popup">
+        <p>✅ Thank you for contacting us!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scroll Script + Popup Script -->
+  <script>
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-links li a");
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      let currentBg = "";
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 150;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute("id");
+          currentBg = section.getAttribute("data-bg");
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+
+      navbar.classList.remove("navbar-peach", "navbar-blue", "navbar-purple", "navbar-green");
+
+      if (currentBg) {
+        navbar.classList.add("navbar-" + currentBg);
+      }
+    });
+
+    // Thank You Popup
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const popup = document.getElementById("thankYouPopup");
+      popup.style.display = "block";
+
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 4000);
+
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>

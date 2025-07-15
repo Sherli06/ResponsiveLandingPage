@@ -1,0 +1,201 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 20px;
+  background-color: inherit;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links li a:hover {
+  background-color: yellow;
+  color: black;
+  border-radius: 5px;
+}
+
+.nav-links li a.active {
+  background-color: #ffb347;
+  color: white;
+  border-radius: 5px;
+}
+
+/* Dynamic Navbar Backgrounds */
+.navbar-peach {
+  background-color: #ff9966 !important;
+}
+
+.navbar-blue {
+  background-color: #2980b9 !important;
+}
+
+.navbar-purple {
+  background-color: #8e44ad !important;
+}
+
+.navbar-green {
+  background-color: #27ae60 !important;
+}
+
+/* Sections */
+section {
+  padding: 120px 20px 80px;
+  text-align: center;
+}
+
+/* Home Section */
+.home-section {
+  background-color: #ffe5b4;
+  color: #333;
+}
+
+.home-content {
+  max-width: 700px;
+  margin: auto;
+}
+
+.home-icon {
+  font-size: 60px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* Features Section */
+.features-section {
+  background-color: #eef7fa;
+  color: #333;
+}
+
+.features-content {
+  max-width: 700px;
+  margin: auto;
+}
+
+.features-icon {
+  font-size: 60px;
+  color: #2980b9;
+  margin-bottom: 20px;
+}
+
+/* About Section */
+.about-section {
+  background-color: #f3e6ff;
+  color: #333;
+}
+
+.about-content {
+  max-width: 700px;
+  margin: auto;
+}
+
+.about-icon {
+  font-size: 60px;
+  color: #9b59b6;
+  margin-bottom: 20px;
+}
+
+/* Contact Section */
+.contact-section {
+  background-color: #e4fbe1;
+  color: #333;
+}
+
+.contact-content {
+  max-width: 500px;
+  margin: auto;
+}
+
+.contact-icon {
+  font-size: 60px;
+  color: #27ae60;
+  margin-bottom: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  padding: 10px;
+  background-color: #27ae60;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #219150;
+}
+
+/* ✅ Thank You Popup */
+.thank-you-popup {
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2ecc71;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 2000;
+  font-size: 18px;
+  animation: fadeInOut 4s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { opacity: 0; }
+}
